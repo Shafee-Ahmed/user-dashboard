@@ -9,7 +9,8 @@ interface UserDetailsProps {
 }
 
 export default async function UserDetailsPage({ params }: UserDetailsProps) {
-  const userId = Number(params.id);
+  const {id} = await params
+  const userId = Number(id);
   const user: User | undefined = await fetchUserById(userId);
 
   if (!user) {
